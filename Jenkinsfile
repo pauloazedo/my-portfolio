@@ -24,7 +24,6 @@ pipeline {
     stage('Build & Export') {
       steps {
         sh 'npm run build'
-        sh 'npm run export'
       }
     }
 
