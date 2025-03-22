@@ -1,3 +1,8 @@
 export default function Contact() {
-    return <h2 className="text-2xl font-bold">Contact</h2>;
-  }
+    return (
+      <main className="p-6 text-center">
+        <h1 className="text-3xl font-bold mb-4">Contact</h1>
+        <p>You can reach me via email or LinkedIn.</p>
+      </main>
+    );
+  }  
