@@ -3,7 +3,7 @@ pipeline {
 
   environment {
     DEPLOY_DIR = '/deploy'
-    SITE_DIR = '/home/ubuntu/docker/site'
+    SITE_DIR   = '/site'
   }
 
   stages {
@@ -21,7 +21,7 @@ pipeline {
       }
     }
 
-    stage('Build & Export') {
+    stage('Build') {
       steps {
         sh 'npm run build'
       }
