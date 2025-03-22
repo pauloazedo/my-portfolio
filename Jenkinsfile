@@ -3,7 +3,7 @@ pipeline {
 
   environment {
     DEPLOY_DIR = '/deploy'
-    SITE_DIR   = '/site'
+    SITE_DIR = '/site'
   }
 
   stages {
@@ -31,7 +31,7 @@ pipeline {
       steps {
         sh 'rm -rf $DEPLOY_DIR/*'
         sh 'cp -r out/* $DEPLOY_DIR/'
-        sh "docker-compose -f $SITE_DIR/docker-compose.yml restart web"
+        sh 'docker-compose -f $SITE_DIR/docker-compose.yml restart web'
       }
     }
   }
