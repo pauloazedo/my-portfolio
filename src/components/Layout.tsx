@@ -1,4 +1,3 @@
-// src/components/Layout.tsx
 import { useState } from 'react';
 import Link from 'next/link';
 
@@ -17,14 +16,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen flex flex-col bg-gray-100 text-gray-900">
       <header className="bg-white shadow-md">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/" className="text-lg font-bold">
-            Paulo Azedo
-          </Link>
-
+        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between sm:justify-start sm:space-x-8">
+          {/* Mobile menu toggle (left) */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="sm:hidden text-gray-900 focus:outline-none"
+            className="sm:hidden text-gray-900 focus:outline-none mr-4"
             aria-label="Toggle menu"
           >
             <svg
@@ -42,7 +38,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </svg>
           </button>
 
-          <nav className="hidden sm:flex space-x-6">
+          {/* Site title */}
+          <Link href="/" className="text-lg font-bold whitespace-nowrap">
+            Paulo Azedo
+          </Link>
+
+          {/* Desktop menu (right aligned on sm+) */}
+          <nav className="hidden sm:flex space-x-6 ml-auto">
             {NAV_ITEMS.map(({ label, href }) => (
               <Link key={href} href={href} className="hover:underline">
                 {label}
@@ -51,6 +53,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </nav>
         </div>
 
+        {/* Mobile nav */}
         {isOpen && (
           <div className="sm:hidden px-4 pb-4">
             <nav className="flex flex-col space-y-2">
