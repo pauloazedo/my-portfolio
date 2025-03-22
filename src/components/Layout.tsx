@@ -16,35 +16,38 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen flex flex-col bg-gray-100 text-gray-900">
       <header className="bg-white shadow-md">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between sm:justify-start sm:space-x-8">
-          {/* Mobile menu toggle (left) */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="sm:hidden text-gray-900 focus:outline-none mr-4"
-            aria-label="Toggle menu"
-          >
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
+        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+          {/* Left section: menu + name */}
+          <div className="flex items-center space-x-3">
+            {/* Mobile menu toggle */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-gray-900 focus:outline-none sm:hidden"
+              aria-label="Toggle menu"
             >
-              {isOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                {isOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
 
-          {/* Site title */}
-          <Link href="/" className="text-lg font-bold whitespace-nowrap">
-            Paulo Azedo
-          </Link>
+            {/* Site title */}
+            <Link href="/" className="text-lg font-bold whitespace-nowrap">
+              Paulo Azedo
+            </Link>
+          </div>
 
-          {/* Desktop menu (right aligned on sm+) */}
-          <nav className="hidden sm:flex space-x-6 ml-auto">
+          {/* Desktop nav */}
+          <nav className="hidden sm:flex space-x-6">
             {NAV_ITEMS.map(({ label, href }) => (
               <Link key={href} href={href} className="hover:underline">
                 {label}
