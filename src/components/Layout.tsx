@@ -3,10 +3,11 @@ import Link from 'next/link';
 
 const NAV_ITEMS = [
   { label: 'Home', href: '/' },
-  { label: 'Skills', href: '/skills' },
-  { label: 'Projects', href: '/projects' },
+  { label: 'About Me', href: '/about-me' },
+  { label: 'Experience', href: '/experience' },
+  { label: 'Tools', href: '/tools' },
+  { label: 'Education', href: '/education' },
   { label: 'Certifications', href: '/certifications' },
-  { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -17,7 +18,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen flex flex-col bg-gray-100 text-gray-900">
       <header className="bg-white shadow-md">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-          {/* Left section: menu + name */}
+          {/* Left section: hamburger + name */}
           <div className="flex items-center space-x-3">
             {/* Mobile menu toggle */}
             <button
@@ -75,8 +76,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         )}
       </header>
 
-      <main className="flex-grow flex items-center justify-center px-4 py-12">
-        <div className="max-w-2xl w-full">{children}</div>
+      {/* Content starts directly below header now */}
+      <main className="flex-grow px-4 py-12">
+        <div className="max-w-4xl w-full mx-auto">{children}</div>
       </main>
 
       <footer className="bg-white text-center text-sm py-4 border-t border-gray-200">
